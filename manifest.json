@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "PPG Local Search",
+  "version": "1.0",
+  "description": "Locally indexes and searches Planning Practice Guidance pages.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "alarms",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://www.gov.uk/government/collections/planning-practice-guidance",
+    "https://www.gov.uk/guidance/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.gov.uk/government/collections/planning-practice-guidance"],
+      "js": ["js/lunr.min.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon48.png"
+  }
+}
