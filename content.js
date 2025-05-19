@@ -26,6 +26,7 @@ function injectSearchUI() {
     const container = document.createElement('div');
     container.id = SEARCH_CONTAINER_ID;
     container.className = 'ppg-search-widget';
+    container.style.position = 'relative'; // Ensure relative positioning for the widget
 
     const label = document.createElement('label');
     label.htmlFor = SEARCH_INPUT_ID;
@@ -65,10 +66,28 @@ function injectSearchUI() {
     const resultsDiv = document.createElement('div');
     resultsDiv.id = RESULTS_DIV_ID;
 
+    // Add "Powered by Livedin" link
+    const poweredByDiv = document.createElement('div');
+    poweredByDiv.style.position = 'absolute';
+    poweredByDiv.style.bottom = '5px';
+    poweredByDiv.style.right = '10px';
+    poweredByDiv.style.fontSize = '0.8em';
+    poweredByDiv.style.color = '#777';
+
+    const poweredByLink = document.createElement('a');
+    poweredByLink.href = 'https://www.livedin.co.uk';
+    poweredByLink.textContent = 'Powered by Livedin';
+    poweredByLink.target = '_blank';
+    poweredByLink.style.textDecoration = 'none';
+    poweredByLink.style.color = '#777';
+
+    poweredByDiv.appendChild(poweredByLink);
+
     container.appendChild(label);
     container.appendChild(searchWrapper);
     container.appendChild(statusDiv);
     container.appendChild(resultsDiv);
+    container.appendChild(poweredByDiv); // Append the "Powered by Livedin" link
 
     targetHeading.parentNode.insertBefore(container, targetHeading);
 
