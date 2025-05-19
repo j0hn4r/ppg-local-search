@@ -42,3 +42,17 @@ chrome.runtime.sendMessage({ command: "getIndexStatus" }, (response) => {
       indexButton.disabled = response.running || false;
    }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Fetch the index creation date from storage
+    chrome.storage.local.get('indexCreationDate', (result) => {
+        const indexDateElement = document.getElementById('index-date');
+        if (result.indexCreationDate) {
+            const date = new Date(result.indexCreationDate);
+            const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear().toString().slice(-2)}`;
+            indexDateElement.textContent = formattedDate; // Display the formatted date
+        } else {
+            indexDateElement.textContent = 'No index created yet.';
+        }
+    });
+});

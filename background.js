@@ -89,6 +89,20 @@ async function parseHtmlViaOffscreen(htmlString, task) {
     }
 }
 
+// --- Alarm Setup for Monthly Index Refresh ---
+chrome.runtime.onInstalled.addListener(() => {
+    // Create or update an alarm to trigger monthly
+    chrome.alarms.create('monthlyIndexRefresh', { periodInMinutes: 43200 }); // 43200 minutes = 30 days
+    console.log("BG: Monthly index refresh alarm set.");
+});
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === 'monthlyIndexRefresh') {
+        console.log("BG: Monthly index refresh triggered.");
+        startIndexingProcess(); // Trigger the indexing process
+    }
+});
+
 // --- Main Indexing Function ---
 async function startIndexingProcess() {
 
@@ -210,7 +224,8 @@ async function startIndexingProcess() {
          documents.forEach(doc => { documentsMap[doc.id] = { title: doc.title }; });
          await chrome.storage.local.set({
              [STORAGE_KEY_INDEX]: JSON.stringify(idx),
-             [STORAGE_KEY_DOCS]: documentsMap
+             [STORAGE_KEY_DOCS]: documentsMap,
+             'indexCreationDate': new Date().toISOString() // Store the current date as ISO string
          });
         updateStatus(`Indexing complete (${documents.length} docs). Ready.`, true);
 

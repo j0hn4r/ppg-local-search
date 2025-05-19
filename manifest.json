@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "PPG Local Search",
+  "name": "PPG Search",
   "version": "1.0",
   "description": "Locally indexes and searches Planning Practice Guidance pages.",
   "permissions": [

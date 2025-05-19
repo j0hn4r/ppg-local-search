@@ -19,14 +19,14 @@ function injectSearchUI() {
 
     const targetHeading = document.getElementById('planning-practice-guidance-categories');
     if (!targetHeading) {
-        console.error("CONTENT.JS: Target heading 'planning-practice-guidance-categories' not found for UI injection."); // Log 2b
+        console.error("CONTENT.JS: Target heading 'planning-practice-guidance-categories' not found for UI injection.");
         return;
     }
 
     const container = document.createElement('div');
     container.id = SEARCH_CONTAINER_ID;
     container.className = 'ppg-search-widget';
-    container.style.position = 'relative'; // Ensure relative positioning for the widget
+    container.style.position = 'relative';
 
     const label = document.createElement('label');
     label.htmlFor = SEARCH_INPUT_ID;
@@ -34,31 +34,19 @@ function injectSearchUI() {
 
     const searchWrapper = document.createElement('div');
     searchWrapper.style.position = 'relative';
+    searchWrapper.style.display = 'flex';
+    searchWrapper.style.alignItems = 'center';
 
     const input = document.createElement('input');
     input.type = 'search';
     input.id = SEARCH_INPUT_ID;
     input.placeholder = 'Search guidance...';
     input.disabled = true;
-
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', '0 0 24 24');
-    svg.style.position = 'absolute';
-    svg.style.right = '14px';
-    svg.style.top = '50%';
-    svg.style.transform = 'translateY(-50%)';
-    svg.style.width = '18px';
-    svg.style.height = '18px';
-    svg.style.fill = '#b1b4b6';
-    svg.style.pointerEvents = 'none';
-
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('d', 'M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l4.25 4.25c.41.41 1.09.41 1.5 0s.41-1.09 0-1.5l-4.25-4.25zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z');
-    svg.appendChild(path);
+    input.style.flex = '1'; // Allow the input to take up available space
+    input.style.paddingRight = '30px'; // Add padding to avoid overlap with the cancel button
 
     searchWrapper.appendChild(input);
-    searchWrapper.appendChild(svg);
-
+    
     const statusDiv = document.createElement('div');
     statusDiv.id = STATUS_DIV_ID;
     statusDiv.textContent = 'Initializing...';
@@ -66,7 +54,6 @@ function injectSearchUI() {
     const resultsDiv = document.createElement('div');
     resultsDiv.id = RESULTS_DIV_ID;
 
-    // Add "Powered by Livedin" link
     const poweredByDiv = document.createElement('div');
     poweredByDiv.style.position = 'absolute';
     poweredByDiv.style.bottom = '5px';
@@ -87,11 +74,10 @@ function injectSearchUI() {
     container.appendChild(searchWrapper);
     container.appendChild(statusDiv);
     container.appendChild(resultsDiv);
-    container.appendChild(poweredByDiv); // Append the "Powered by Livedin" link
+    container.appendChild(poweredByDiv);
 
     targetHeading.parentNode.insertBefore(container, targetHeading);
 
-    // Add event listener for search input
     input.addEventListener('input', handleSearchInput);
 }
 
