@@ -52,3 +52,70 @@
 #ppg-local-search-results a:hover {
     color: #003078;
 }
+.ppg-search-widget {
+  font-family: "GDS Transport", Arial, sans-serif;
+  background: #fff;
+  border: 1.5px solid #b1b4b6;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 18px 20px 12px 20px;
+  max-width: 420px;
+  margin: 24px auto;
+}
+
+.ppg-search-widget label {
+  display: block;
+  font-size: 1.05em;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #0b0c0c;
+}
+
+#ppg-local-search-input {
+  width: 100%;
+  font-size: 1.08em;
+  padding: 10px 14px;
+  border: 1.5px solid #b1b4b6;
+  border-radius: 5px;
+  transition: border-color 0.2s;
+  background: #fff;
+  color: #0b0c0c;
+  box-sizing: border-box;
+  outline: none;
+}
+
+#ppg-local-search-input:focus {
+  border-color: #fd0; /* GOV.UK yellow */
+  box-shadow: 0 0 0 2px #fd0;
+}
+
+#ppg-local-search-status {
+  margin-top: 12px;
+  font-size: 0.97em;
+  color: #505a5f;
+  padding-bottom: 6px;
+}
+
+#ppg-local-search-results {
+  margin-top: 10px;
+}
+
+.ppg-search-result {
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  background: #f3f2f1;
+  transition: background 0.15s;
+}
+
+.ppg-search-result:hover {
+  background: #fd0;
+}
+
+@media (max-width: 600px) {
+  .ppg-search-widget {
+    max-width: 98vw;
+    padding: 10px;
+  }
+}

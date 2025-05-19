@@ -1,0 +1,96 @@
+/* popup.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 14px;
+  margin: 0;
+  width: 300px; /* Adjust width as needed */
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.popup-container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px; /* Ensure it doesn't look too squished */
+}
+
+.popup-header {
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#companyLogo {
+  max-width: 100px; /* Adjust as needed */
+  max-height: 50px; /* Adjust as needed */
+  margin-bottom: 8px;
+  display: block; /* Center if needed with margin: auto or text-align on parent */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.popup-header h1 {
+  font-size: 1.2em;
+  margin: 0;
+  color: #1a73e8; /* A nice blue, change as you like */
+}
+
+.popup-content {
+  flex-grow: 1; /* Makes this section take available space */
+}
+
+.popup-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.button-primary {
+  background-color: #1a73e8; /* Match header color or your brand */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box; /* So padding doesn't increase width */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button-primary:hover {
+  background-color: #1558b3; /* Darker shade on hover */
+}
+
+.button-primary:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.status-message {
+  margin-top: 15px;
+  padding: 8px;
+  font-style: italic;
+  background-color: #e9e9e9;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #444;
+}
+
+.popup-footer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: 0.8em;
+  color: #777;
+}
+
+.popup-footer p {
+  margin: 0;
+}

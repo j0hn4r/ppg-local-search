@@ -2,17 +2,32 @@
 <html>
 <head>
   <title>PPG Local Search Control</title>
-  <style>
-    body { font-family: sans-serif; width: 250px; padding: 10px; }
-    button { margin-top: 10px; padding: 8px; width: 100%; }
-    #status { margin-top: 10px; font-style: italic; }
-  </style>
+  <link rel="stylesheet" href="popup.css"> <!-- Link to a new CSS file -->
 </head>
 <body>
-  <h3>PPG Local Search</h3>
-  <p>Build or update the local search index from the GOV.UK Planning Practice Guidance pages.</p>
-  <button id="startIndexButton">Build / Update Index</button>
-  <div id="status">Ready.</div>
+  <div class="popup-container">
+    <header class="popup-header">
+  <a href="https://www.livedin.co.uk" target="_blank" rel="noopener noreferrer">
+    <img src="images/company-logo.png" alt="Company Logo" id="companyLogo">
+  </a>
+  <h1>PPG Search</h1>
+</header>
+
+    <section class="popup-content">
+      <p>
+        Keep your local index of GOV.UK <a href="https://www.gov.uk/government/collections/planning-practice-guidance" target="_blank" rel="noopener noreferrer">Planning Practice Guidance</a>
+        up-to-date.
+      </p>
+      <button id="startIndexButton" class="button-primary">
+        Start Index
+      </button>
+      <div id="status" class="status-message">Ready.</div>
+    </section>
+
+    <footer class="popup-footer">
+      <p>© 2025 Livedin</p> 
+    </footer>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>
