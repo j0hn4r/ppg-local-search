@@ -29,7 +29,7 @@ function injectSearchUI() {
 
     const label = document.createElement('label');
     label.htmlFor = SEARCH_INPUT_ID;
-    label.textContent = 'Search Local PPG Index:';
+    label.textContent = 'Search the PPG:';
 
     const searchWrapper = document.createElement('div');
     searchWrapper.style.position = 'relative';
